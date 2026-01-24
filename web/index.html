@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>OCR to Markdown</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📷 OCR to Markdown</h1>
+            <p class="subtitle">Extract text & math formulas from images</p>
+        </header>
+
+        <section class="upload-section">
+            <div class="file-input-wrapper">
+                <input type="file" id="imageInput" accept="image/jpeg,image/png,image/gif,image/webp" hidden>
+                <button id="selectBtn" class="btn btn-secondary">
+                    <span class="icon">📁</span> Select Image
+                </button>
+            </div>
+            <div id="preview" class="preview hidden">
+                <img id="previewImage" alt="Preview">
+                <button id="clearBtn" class="btn-clear">✕</button>
+            </div>
+            <button id="extractBtn" class="btn btn-primary" disabled>
+                <span class="icon">🔍</span> Extract Text
+            </button>
+        </section>
+
+        <section id="resultSection" class="result-section hidden">
+            <div class="tabs">
+                <button class="tab active" data-view="rendered">Rendered</button>
+                <button class="tab" data-view="raw">Raw Markdown</button>
+            </div>
+            <div id="renderedView" class="result-content">
+                <div id="renderedMarkdown"></div>
+            </div>
+            <div id="rawView" class="result-content hidden">
+                <pre id="rawMarkdown"></pre>
+            </div>
+            <button id="copyBtn" class="btn btn-secondary">
+                <span class="icon">📋</span> Copy Markdown
+            </button>
+        </section>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Extracting text...</p>
+        </div>
+
+        <div id="error" class="error hidden"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="js/telegram.js"></script>
+    <script src="js/markdown.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
