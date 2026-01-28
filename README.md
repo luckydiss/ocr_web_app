@@ -1,6 +1,6 @@
 # OCR to Markdown - Telegram Mini App
 
-A Telegram Mini App that converts images containing text and mathematical formulas to Markdown using Google Gemini API.
+A Telegram Mini App that converts images containing text and mathematical formulas to Markdown using Google Gemini API
 
 ## Features
 
